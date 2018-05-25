@@ -30,3 +30,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 });
 
 Route::get('/{all}', 'HomeController@index')->name('home')->where(['all' => '.*']);
+Route::get('/{all}/{all2}', 'HomeController@index')->name('home')->where(['all' => '.*', 'all2' => '.*']);
