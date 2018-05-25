@@ -148,7 +148,7 @@ const routes = [
 
     //app
     {
-        path: '/*',
+        path: '/',
         components: {
             home: Home
         },
