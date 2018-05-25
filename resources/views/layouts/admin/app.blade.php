@@ -51,19 +51,19 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
 
     <!-- jQuery -->
-    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}" type="text/javascript"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="{{ asset('theme/vendor/metisMenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('theme/vendor/metisMenu/metisMenu.min.js') }}" type="text/javascript"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('theme/dist/js/sb-admin-2.js') }}"></script>
+    <script src="{{ asset('theme/dist/js/sb-admin-2.js') }}" type="text/javascript"></script>
 
 
 </body>
