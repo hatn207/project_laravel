@@ -14,21 +14,21 @@
 
     <!-- Styles -->
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('theme/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('theme/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="{{ asset('theme/vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('theme/vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ asset('theme/dist/css/sb-admin-2.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('theme/dist/css/sb-admin-2.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{ asset('theme/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     
     <!-- jQuery -->
-    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     
     {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
 </head>
@@ -51,19 +51,19 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- jQuery -->
-    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="{{ asset('theme/vendor/metisMenu/metisMenu.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('theme/vendor/metisMenu/metisMenu.min.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('theme/dist/js/sb-admin-2.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('theme/dist/js/sb-admin-2.js') }}"></script>
 
 
 </body>
