@@ -1,0 +1,234 @@
+<template>
+    <div class="col-md-8" v-if="show">
+    <div class="entity_wrapper">
+        <div class="entity_title header_purple">
+            <h1>
+                <router-link :to="{name: 'category', params: {id: category.id, slug: category.slug}}">
+                    <a>{{ category.name }}</a>
+                </router-link>
+            </h1>
+        </div>
+        <!-- entity_title -->
+    
+        <div class="entity_thumb">
+            <img class="img-responsive" width="100%" :src="rowFirst.thumb" :alt="rowFirst.slug">
+        </div>
+        <!-- entity_thumb -->
+        
+        <div class="entity_title">
+            <h5>
+            <router-link v-scroll-to="'#main-wrapper'" :to="{name: 'article', params: {cate: category.slug, slug: rowFirst.slug}}">
+                <a>{{ rowFirst.title }}</a>
+            </router-link>
+            </h5>
+        </div>
+        <!-- entity_title -->
+
+        <!-- <div class="entity_meta">
+            <img :src="rowFirst.fav"> {{ rowFirst.website_name }}
+        </div> -->
+        <!-- entity_meta -->
+        
+        <!-- <div class="entity_content" v-html="rowFirst.headword"></div> -->
+        <!-- entity_content -->
+        
+
+        <div class="entity_meta">
+            <img :src="fav_gg + rowFirst.website_url"> {{ rowFirst.website_name }}
+        </div>
+
+        <div class="entity_meta">
+            Cập nhật: {{ rowFirst.updated_at }}
+            <!-- , by: <a href="#">Eric joan</a> -->
+        </div>
+        <!-- entity_meta -->
+
+        <span class="tag orange">{{ category.name }}</span>
+
+        <div style="margin-bottom:0px" class="entity_social">
+            <span><i class="fa fa-eye"></i>{{ rowFirst.view }} lượt xem </span>
+            <span><i class="fa fa-comments-o"></i>{{ rowFirst.comments.length }} bình luận </span>
+        </div>
+        <!-- entity_social -->
+        
+        <p class="widget_divider">
+            <router-link v-scroll-to="'#main-wrapper'" tag="a" :to="{name: 'article', params: {cate: category.slug, slug: rowFirst.slug}}">
+                Xem Chi tiết&nbsp;»
+            </router-link>
+        </p>
+    
+    </div>
+    <!-- entity_wrapper -->
+    
+    <div class="row">
+        <div v-for="row in rows" :key="row.id" class="col-md-6" style="margin-top: 20px; height: 450px" v-if="row.id != rowFirst.id">
+            
+            <div class="category_article_body">
+                <div class="top_article_img">
+                    <img class="img-responsive" width="100%" style="height: 220px" :src="row.thumb" :alt="row.slug">
+                </div>
+                <!-- top_article_img -->
+
+                
+
+                <div class="category_article_title">
+                    <h5>
+                        <router-link v-scroll-to="'#main-wrapper'" :to="{name: 'article', params: {cate: category.slug, slug: row.slug}}">
+                            <a>{{ row.title }}</a>
+                        </router-link>
+                    </h5>
+                </div>
+                <!-- category_article_title -->
+    
+                <!-- <div class="category_article_content" v-html="row.headword"></div> -->
+                <!-- category_article_content -->
+
+                <div class="entity_meta">
+                    <img :src="fav_gg + row.website_url"> {{ row.website_name }}
+                </div>
+
+                <div class="article_date">
+                    Cập nhật: {{ row.updated_at }}
+                </div>
+                <!-- article_date -->
+
+                <span class="tag orange">{{ category.name }}</span>
+                
+                <div class="article_social">
+                    <span><i class="fa fa-eye"></i>{{ row.view }} lượt xem </span>
+                    <span><i class="fa fa-comments-o"></i>{{ row.comments.length }} bình luận </span>
+                </div>
+                <!-- article_social -->
+
+                <p class="widget_divider">
+                    <router-link v-scroll-to="'#main-wrapper'" tag="a" :to="{name: 'article', params: {cate: category.slug, slug: row.slug}}">
+                        Xem Chi tiết&nbsp;»
+                    </router-link>
+                </p>
+            </div>
+            <!-- category_article_body -->
+    
+        </div>
+        <!-- col-md-6 -->
+
+        
+    
+    </div>
+    <!-- row -->
+    
+    <nav v-if="pagination.last_page > 1" aria-label="Page navigation" class="pagination_section">
+        <ul class="pagination">
+            <li v-if="pagination.current_page > 1">
+                <a v-scroll-to="'#main-wrapper'" href="javascript:void(0)" aria-label="Previous" v-on:click.prevent="changePage(pagination.current_page - 1)"> <span aria-hidden="true">&laquo;</span> </a>
+            </li>
+            <li v-for="page in pagesNumber" :class="{'active': page == pagination.current_page}">
+                <a v-scroll-to="'#main-wrapper'" href="javascript:void(0)" v-on:click.prevent="changePage(page)">{{ page }}</a>
+            </li>
+            <li v-if="pagination.current_page < pagination.last_page">
+                <a v-scroll-to="'#main-wrapper'" href="javascript:void(0)" aria-label="Next" v-on:click.prevent="changePage(pagination.current_page + 1)"> <span aria-hidden="true">&raquo;</span> </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- navigation -->
+    
+    </div>
+    <!-- col-md-8 -->
+
+    <div class="col-md-8" v-else>
+        <div class="entity_wrapper">
+            <div class="entity_title header_purple">
+                <h1>
+                    <router-link :to="{name: 'category', params: {id: category.id, slug: category.slug}}">
+                        <a>{{ category.name }}</a>
+                    </router-link>
+                </h1>
+            </div>
+            <!-- entity_title -->
+            <div class="entity_meta">
+            Không có bài viết...
+            </div>
+        </div>
+    </div>
+
+    </template>
+
+    <script>
+    export default {
+        data: function () {
+            return {
+                rows: [],
+                counter: 0,
+                pagination: {
+                    total: 0,
+                    per_page: 2,
+                    from: 1,
+                    to: 0,
+                    current_page: 1
+                },
+                offset: 4,
+                show: false,
+                category: {
+                },
+                rowFirst: {},
+                fav_gg: null
+            }
+        },
+        computed: {
+            pagesNumber() {
+                var app = this;
+                if (!app.pagination.to) {
+                return [];
+                }
+                let from = app.pagination.current_page - app.offset;
+                if (from < 1) {
+                from = 1;
+                }
+                let to = from + (app.offset * 2);
+                if (to >= app.pagination.last_page) {
+                to = app.pagination.last_page;
+                }
+                let pagesArray = [];
+                for (let page = from; page <= to; page++) {
+                pagesArray.push(page);
+                }
+                return pagesArray;
+            }
+        },
+        mounted() {
+            var app = this;
+            app.fav_gg = 'http://www.google.com/s2/favicons?domain=';
+            app.getData(app.pagination.current_page)
+        },
+        methods: {
+            changePage(page) {
+                var app = this;
+                app.pagination.current_page = page;
+                app.getData(app.pagination.current_page);
+            },
+            getData(page) {
+                var app = this;
+                var slug = app.$route.params.slug;
+                axios.get('/api/v1/app-category-articles/' + slug + '?page='+page)
+                .then(function (resp) {
+                    // console.log(resp.data.articles.data);
+                    app.rows = resp.data.articles.data;
+                    app.pagination = resp.data.articles;
+                    app.category = resp.data.category;
+                    app.rowFirst = resp.data.articles.data[0];
+                    app.$set(app.rowFirst, 'fav', 'http://www.google.com/s2/favicons?domain='+app.rowFirst.website_url);
+                    // console.log(app.pagination);
+                    if (app.rows.length != 0) {
+                        app.show = true;
+                    } else {
+                        app.show = false;
+                    }
+
+                })
+                .catch(function (resp) {
+                    // console.log(resp);
+                    // alert("Could not load data");
+                });
+            }
+        }
+    }
+</script>
