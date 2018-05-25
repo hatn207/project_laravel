@@ -14,7 +14,7 @@
 
     <!-- Styles -->
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('theme/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link type="text/html" href="{{ asset('theme/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="{{ asset('theme/vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
