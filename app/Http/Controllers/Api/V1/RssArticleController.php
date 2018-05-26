@@ -103,26 +103,26 @@ class RssArticleController extends Controller
         $param = $request->all();
         
         // upload image
-        $path_root = '/images/admin/articles/';
-        $image = $param['image'];
-        $rule_extention = ['png', 'jpg', 'jpeg'];
+        // $path_root = '/images/admin/articles/';
+        // $image = $param['image'];
+        // $rule_extention = ['png', 'jpg', 'jpeg'];
         
-        if ($param['image_change_flg']) {
-            $image_extention = explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-            // validate image
-            if (!in_array($image_extention, $rule_extention)) {
-                return response()->json([
-                    'image' => ['Chỉ cho phép tải tệp có đuôi là: '. implode(', ', $rule_extention)]
-                ], 422);
-            }
-            $name = time() . '.' . $image_extention;
-        } else {
-            $name = time() . '-' . basename($image);
-        }
-        $path_save = $path_root . $name;
-        \Image::make($image)->save(public_path($path_save));
-        $param['thumb'] = $path_save;
-        $param['image'] = $path_save;
+        // if ($param['image_change_flg']) {
+        //     $image_extention = explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+        //     // validate image
+        //     if (!in_array($image_extention, $rule_extention)) {
+        //         return response()->json([
+        //             'image' => ['Chỉ cho phép tải tệp có đuôi là: '. implode(', ', $rule_extention)]
+        //         ], 422);
+        //     }
+        //     $name = time() . '.' . $image_extention;
+        // } else {
+        //     $name = time() . '-' . basename($image);
+        // }
+        // $path_save = $path_root . $name;
+        // \Image::make($image)->save(public_path($path_save));
+        // $param['thumb'] = $path_save;
+        // $param['image'] = $path_save;
 
         // update status rss article
         $rssArticle = RssArticle::findOrFail($id);
@@ -139,7 +139,7 @@ class RssArticleController extends Controller
         $article->website_url = $param['website_url'];
         $article->title = $param['title'];
         $article->headword = $param['headword'];
-        $article->thumb = $param['thumb'];
+        $article->thumb = $param['image']; // $param['thumb']
         $article->image = $param['image'];
         $article->slug = str_slug($param['title']);
         $article->pub_date = $param['pub_date'];
