@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Rss;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Analytics;
+use Spatie\Analytics\Period;
 
 class RssController extends Controller
 {
@@ -17,6 +19,14 @@ class RssController extends Controller
      */
     public function index()
     {
+        //fetch the most visited pages for today and the past week
+        $row1 = Analytics::fetchMostVisitedPages(Period::days(7));
+
+        //fetch visitors and page views for the past week
+        $row2 = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+
+        return $row1;
+
         $rsses = Rss::latest()
             ->where('status', Rss::STATUS_ACTIVE)
             ->paginate(10);
