@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hatn-donga",
+  "private_key_id": "38bf29fbe5a79d8e5969f8113da2f8bc810e3cbe",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDpt/A9MbjbjwHs\nCSvV38qBKyQksmJJCJEpjtKuOABEDeZpTwHjZn2mN57ibBrjd1Mfd/DYSkbPqWYx\nhLDxr9iuQ7WV7H4R+KqgBZrc59sZqh3ZssaxCAMEWxNmLGfQtgE3Ui8mywU/tmXP\nxLpwiUd20+VImtxWf1t0mpz9hA27UX+Y91M7U2pBpaPOF912Z2xa1tMwPIts0fuF\nkVE2Ya8Ug8d8VdpkX/eG8DVyZhNIFj/qM3kPt3mnBQTo6ys1AoHsMY69/viKZmxy\nV//2F0u/pn/jfFrPIfpWLmugtfmt/CnqvV6GzkZN2hBqz82v5Kd8LgRsJzvacJLe\n/s8CBFKPAgMBAAECggEAYS1nWPJfI/9qs6s+jD9wUlPPQ+jd3/MNdIObiu/jAGjt\nKFU++j/Ht8CBsjBz36diKv/yZuQ/XCHZyXYcImnUxOSHUI6T/sHvo/igowBOg/XN\nUpK4daxYoMuDneSRx+CdUdS8oTsh9BNRctmgEaGq0rgZKh6lxdtPegS9iNWK5hqZ\n2KD8ymK49E3st1OP0Jpw4hWGwlJxLnooI4kLtptZfEKgr8b5bg3BE/IquREgzMTL\nbthra29XAsX3yPZV23ttVc6mGiPQwny0JQ3/0oZImVDodf6JqhwxNb0qf1Tqr46l\nnf1dccc4ts/55UbsBSXITy/ztW6Yb7emlFCFpJvoQQKBgQD8l5fFIAl8VOFsAyl7\nvBxoZ7Q+sJlJhm8QFBrJH7gGJixxvDbT6asTwBk/vyYm+YODtw9S+J4e4ZdmZ5Iq\ntGxI0vCfjJpB2LRVeDmiZvhxR6IjiuLu4itHs8mDzM7DHRROmB+ykuH/WphCFKaq\n4j04KLvQh7eg0QNszZFtaxIVzwKBgQDs3yjRXT0+T2IpMOcqUjPQv6JlYFjN/UJd\nt9icDjKSfHLTAq5PkwN5k9fXXgg1kUipN25m2VrXMqQznjr+DU/CksTlvAgDQMzf\nah7YgvVH5GwK2SfsUQSqJtAr8tEv62f19cONNk3a3T+N1JTtdbLFGrDCEU+53f+q\nR5FakhHnQQKBgHa3gPuDLTIkarZrXgnrxaZEZ3C3a7Qk3Po/mL9CiylIs8bY4SQE\nRQXJWZSecH4M84TqeudSNm7pNFFLCGXN2r73dWRnnvCnu0oYcW4k20vSkSAHXNVN\ns23F0EaD8gG+Hxc5ZFx3sIRlvf4A2ryiDIfijTNbNjD9S5DNpTY6Bov9AoGAQEB0\nQP5Kq4k69jNmsQslNP2WXmtZC18kTmmdHw+W1jddqjEy+TDGo4bf6HKARY+IJyZ7\nEvjodDEvazUDiYAw33WSZUKw5bkBGaUegtpbEEo8qGCpPKfpXQI0O4edCKORSp2E\nktxlF/Yl1CIS16qyeFa6FZo+hwtZ22WYXvn6U0ECgYEA3bi1X827MxCHsSiRtD5t\nVAI5v9CjXJYZlp3j71w7lSdsjqNEsBlMLSWl7JfT6Ns3nKmpgOTACtkSzIMTUV9U\nsT7EUT62Dl7sfdwqWlVoJbkl8VNO4wnTxt/NYsmMPv9L+KbxPkCpOK1sW+Y/O7JS\ncqLkexuO0iBz2X24RvIWPko=\n-----END PRIVATE KEY-----\n",
+  "client_email": "hatn-386@hatn-donga.iam.gserviceaccount.com",
+  "client_id": "116684150172083895912",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hatn-386%40hatn-donga.iam.gserviceaccount.com"
+}
