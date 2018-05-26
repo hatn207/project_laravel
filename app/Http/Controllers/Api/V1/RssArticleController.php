@@ -143,7 +143,7 @@ class RssArticleController extends Controller
         $article->writer = \Auth::id(); // to do
         $article->status = Article::STATUS_ACTIVE;
         $article->category_id = $param['category_id'];
-        $ảrticle->rss_article_id = $id;
+        $article->rss_article_id = $id;
         $article->save();
 
         // add tags
