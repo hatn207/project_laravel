@@ -8,6 +8,7 @@ use App\Category;
 use App\Article;
 use App\Tag;
 use App\Comment;
+use App\Seo;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -86,6 +87,7 @@ class AppController extends Controller
     {
         //get all category
         $article = Article::where('slug', $slug)->with('comments')->with('tags')->where('status', Article::STATUS_ACTIVE)->first();
+        $seo = $article->seo()->first();
         if ($article) {
             // update view
             $article->view += 1;
@@ -95,7 +97,7 @@ class AppController extends Controller
             // related article 
             $related = Article::where('category_id', $category->id)->where('slug', '<>', $slug)->with('comments')->where('status', Article::STATUS_ACTIVE)->limit(4)->get();
         }
-        return compact('article', 'related', 'category');
+        return compact('article', 'related', 'category', 'seo');
     }
 
     /**

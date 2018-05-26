@@ -69136,6 +69136,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -69154,14 +69157,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             errorsName: false,
             nameError: null,
             errorsContent: false,
-            contentError: null
-
+            contentError: null,
+            // title: 'Health News',
+            seo: {
+                titleSeo: '',
+                description: '',
+                keywords: ''
+            }
         };
     },
     mounted: function mounted() {
         var app = this;
         app.fav_gg = 'http://www.google.com/s2/favicons?domain=';
         app.getData();
+    },
+    metaInfo: function metaInfo() {
+        return {
+            meta: [{ name: 'keywords', content: this.seo.keywords }, { name: 'description', content: this.seo.description }],
+            // if no subcomponents specify a metaInfo.title, this title will be used
+            title: this.seo.titleSeo
+            // all titles will be injected into this template
+            // titleTemplate: '%s | '+this.titleSeo
+        };
     },
 
     methods: {
@@ -69173,11 +69190,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 app.article = resp.data.article;
                 app.category = resp.data.category;
                 app.related = resp.data.related;
+                app.seo = resp.data.seo;
                 if (app.comments.length != 0) {
                     app.show = true;
                 } else {
                     app.show = false;
                 }
+
+                // seo meta   
+                app.seo.titleSeo = app.seo.title;
+                app.seo.keywords = app.seo.keywords;
+                app.seo.description = app.seo.description;
             }).catch(function (resp) {
                 // console.log(resp);
                 alert("Could not load data");
@@ -69250,10 +69273,18 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "entity_content" }, [
-        _c("img", {
-          staticClass: "img-responsive center-block",
-          attrs: { width: "40%", src: _vm.article.image, alt: _vm.article.slug }
-        })
+        _c("figure", [
+          _c("img", {
+            staticClass: "img-responsive center-block",
+            attrs: { width: "40%", src: _vm.article.image, alt: _vm.seo.alt }
+          }),
+          _vm._v(" "),
+          _c(
+            "figcaption",
+            { staticStyle: { "text-align": "center", "margin-top": "10px" } },
+            [_vm._v("Hình - " + _vm._s(_vm.seo.figcaption))]
+          )
+        ])
       ]),
       _vm._v(" "),
       _c("div", {

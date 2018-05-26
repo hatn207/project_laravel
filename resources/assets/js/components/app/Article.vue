@@ -27,7 +27,10 @@
         <!-- entity_rating -->
 
         <div class="entity_content">
-            <img class="img-responsive center-block" width="40%" :src="article.image" :alt="article.slug">
+            <figure>
+                <img class="img-responsive center-block" width="40%" :src="article.image" :alt="seo.alt">
+                <figcaption style="text-align: center; margin-top: 10px">Hình - {{ seo.figcaption }}</figcaption>
+            </figure>
         </div>
         <!-- entity_thumb -->
 
@@ -177,14 +180,31 @@ export default {
             errorsName: false,
             nameError: null,
             errorsContent: false,
-            contentError: null
-
+            contentError: null,
+            // title: 'Health News',
+            seo: {
+                titleSeo: '',
+                description: '',
+                keywords: ''
+            }
         }
     },
     mounted() {
         var app = this;
         app.fav_gg = 'http://www.google.com/s2/favicons?domain=';
         app.getData()
+    },
+    metaInfo () {
+        return {
+            meta: [
+                { name: 'keywords', content: this.seo.keywords },
+                { name: 'description', content: this.seo.description }
+            ],
+            // if no subcomponents specify a metaInfo.title, this title will be used
+            title: this.seo.titleSeo,
+            // all titles will be injected into this template
+            // titleTemplate: '%s | '+this.titleSeo
+        }
     },
     methods: {
         getData() {
@@ -196,12 +216,18 @@ export default {
                 app.article = resp.data.article;
                 app.category = resp.data.category;
                 app.related = resp.data.related;
+                app.seo = resp.data.seo;
                 if (app.comments.length != 0) {
                     app.show = true;
                 } else {
                     app.show = false;
                 }
 
+                // seo meta   
+                app.seo.titleSeo = app.seo.title;
+                app.seo.keywords = app.seo.keywords;
+                app.seo.description = app.seo.description;
+                
             })
             .catch(function (resp) {
                 // console.log(resp);
