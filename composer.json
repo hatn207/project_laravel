@@ -10,7 +10,8 @@
         "laravel/framework": "5.4.*",
         "laravel/passport": "^v3",
         "laravel/tinker": "~1.0",
-        "vyuldashev/xml-to-array": "^1.0"
+        "vyuldashev/xml-to-array": "^1.0",
+        "gd": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
