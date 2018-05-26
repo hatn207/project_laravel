@@ -13,7 +13,7 @@ storage/*.key
 .env.*.php
 .env.php
 .env
-
+public/images/admin/articles
 Homestead.yaml
 Homestead.json
 
