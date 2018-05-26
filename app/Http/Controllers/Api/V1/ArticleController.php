@@ -233,7 +233,6 @@ class ArticleController extends Controller
         $path_root = '/images/admin/articles/';
         $image = $param['image'];
         $rule_extention = ['png', 'jpg', 'jpeg'];
-        
         if ($param['image_change_flg']) {
             $image_extention = explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
             // validate image
