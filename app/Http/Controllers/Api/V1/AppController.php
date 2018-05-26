@@ -88,6 +88,7 @@ class AppController extends Controller
         //get all category
         $article = Article::where('slug', $slug)->with('comments')->with('tags')->where('status', Article::STATUS_ACTIVE)->first();
         $seo = $article->seo()->first();
+        
         if ($article) {
             // update view
             $article->view += 1;
