@@ -8,7 +8,7 @@ class Seo extends Model
 {
     //
     protected $table = 'seo';
-    protected $fillable = ['title', 'description', 'keywords'];
+    protected $fillable = ['title', 'description', 'keywords', 'figcaption'];
 
     public function seoable()
     {

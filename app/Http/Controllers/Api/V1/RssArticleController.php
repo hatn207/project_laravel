@@ -9,6 +9,7 @@ use App\Category;
 use App\Article;
 use App\Tag;
 use App\Trend;
+use App\Seo;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -125,10 +126,12 @@ class RssArticleController extends Controller
 
         // update status rss article
         $rssArticle = RssArticle::findOrFail($id);
-        $rssArticle->status = RssArticle::STATUS_PUBLIC;
-        $rssArticle->save();
+        // $rssArticle->status = RssArticle::STATUS_PUBLIC;
+        // $rssArticle->save();
         //delete trends rss article
         $rssArticle->trends()->sync([]);
+
+        $rssArticle->delete();
 
         // save to table articles
         $article = new Article;
@@ -170,6 +173,15 @@ class RssArticleController extends Controller
 
         // save table trendables
         $article->trends()->sync($trend_ids);
+
+        // save table seo
+        $seo = new Seo;
+        $seo->title = $param['title'];
+        $seo->description = $param['title'];
+        $seo->keywords = 'tin tức, sức khỏe';
+        $seo->alt = $param['title'];
+        $seo->figcaption = $param['title'];
+        $article->seo()->save($seo);
 
         return response()->json([
             'msg' => 'success'

@@ -294,6 +294,7 @@ class ArticleController extends Controller
         $seo->description = $param['seo']['description'] ? : 'Trang tin tức sức khỏe';
         $seo->keywords = $param['seo']['keywords'] ? : 'Trang tin tức sức khỏe';
         $seo->alt = $param['seo']['alt'] ? : 'Trang tin tức sức khỏe';
+        $seo->figcaption = $param['seo']['title'] ? : 'Trang tin tức sức khỏe';
         $article->seo()->save($seo);
 
 
