@@ -91,6 +91,8 @@
                             </div>
                         </div>
 
+                        <input id="group" type="hidden" class="form-control" name="group" value="1">
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
