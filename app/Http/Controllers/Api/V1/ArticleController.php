@@ -231,6 +231,9 @@ class ArticleController extends Controller
         
         // upload image
         $path_root = '/images/admin/articles/';
+        if (!file_exists($path_root)) {
+            mkdir($path_root, 666, true);
+        }
         $image = $param['image'];
         $rule_extention = ['png', 'jpg', 'jpeg'];
         
