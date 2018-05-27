@@ -67725,21 +67725,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             show: false,
             category: {},
             rowFirst: {},
-            fav_gg: null,
-            title: 'Health News',
-            titleSeo: 'Trang tin tức sức khỏe'
+            fav_gg: null
         };
     },
-    metaInfo: function metaInfo() {
-        return {
-            meta: [{ name: 'keywords', content: 'key1, key2' }, { name: 'description', content: 'seo description' }],
-            // if no subcomponents specify a metaInfo.title, this title will be used
-            title: this.title,
-            // all titles will be injected into this template
-            titleTemplate: '%s | ' + this.titleSeo
-        };
-    },
-
     computed: {
         pagesNumber: function pagesNumber() {
             var app = this;

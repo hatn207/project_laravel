@@ -170,21 +170,7 @@
                 category: {
                 },
                 rowFirst: {},
-                fav_gg: null,
-                title: 'Health News',
-                titleSeo: 'Trang tin tức sức khỏe'
-            }
-        },
-        metaInfo () {
-            return {
-                meta: [
-                { name: 'keywords', content: 'key1, key2' },
-                { name: 'description', content: 'seo description' }
-                ],
-                // if no subcomponents specify a metaInfo.title, this title will be used
-                title: this.title,
-                // all titles will be injected into this template
-                titleTemplate: '%s | '+this.titleSeo
+                fav_gg: null
             }
         },
         computed: {
