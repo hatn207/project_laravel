@@ -67725,9 +67725,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             show: false,
             category: {},
             rowFirst: {},
-            fav_gg: null
+            fav_gg: null,
+            seo: {
+                titleSeo: '',
+                description: '',
+                keywords: ''
+            }
         };
     },
+    metaInfo: function metaInfo() {
+        return {
+            meta: [{ name: 'keywords', content: this.seo.keywords }, { name: 'description', content: this.seo.description }],
+            // if no subcomponents specify a metaInfo.title, this title will be used
+            title: this.seo.titleSeo
+        };
+    },
+
     computed: {
         pagesNumber: function pagesNumber() {
             var app = this;

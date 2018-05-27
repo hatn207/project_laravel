@@ -170,7 +170,22 @@
                 category: {
                 },
                 rowFirst: {},
-                fav_gg: null
+                fav_gg: null,
+                seo: {
+                    titleSeo: '',
+                    description: '',
+                    keywords: ''
+                }
+            }
+        },
+        metaInfo () {
+            return {
+                meta: [
+                    { name: 'keywords', content: this.seo.keywords },
+                    { name: 'description', content: this.seo.description }
+                ],
+                // if no subcomponents specify a metaInfo.title, this title will be used
+                title: this.seo.titleSeo
             }
         },
         computed: {
