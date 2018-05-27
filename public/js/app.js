@@ -11741,16 +11741,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ r
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_analytics___default.a, {
     id: 'UA-119908639-1',
     checkDuplicatedScript: true,
-    router: router,
-    autoTracking: {
-        pageviewTemplate: function pageviewTemplate(route) {
-            return {
-                page: route.path,
-                title: document.title,
-                location: window.location.href
-            };
-        }
-    }
+    router: router
 });
 
 var app = new Vue({ router: router }).$mount('#main-wrapper');
@@ -69225,6 +69216,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 app.seo.titleSeo = app.seo.title;
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
+
+                app.$ga.page({
+                    page: app.$route,
+                    title: app.seo.title,
+                    location: window.location.href
+                });
             }).catch(function (resp) {
                 // console.log(resp);
                 alert("Could not load data");
