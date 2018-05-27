@@ -11741,10 +11741,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ r
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_analytics___default.a, {
     id: 'UA-119908639-1',
     checkDuplicatedScript: true,
-    router: router,
-    autoTracking: {
-        skipSamePath: true
-    }
+    router: router
 });
 
 var app = new Vue({ router: router }).$mount('#main-wrapper');
@@ -67721,9 +67718,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             rowFirst: {},
             fav_gg: null,
             seo: {
-                titleSeo: '',
-                description: '',
-                keywords: ''
+                titleSeo: 'Health News | Trang Chủ',
+                description: 'trang tin tức sức khỏe',
+                keywords: 'tin tức, sức khỏe'
             }
         };
     },
@@ -67778,12 +67775,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 app.rowFirst = resp.data.data[0];
                 app.$set(app.rowFirst, 'fav', 'http://www.google.com/s2/favicons?domain=' + app.rowFirst.website_url);
                 // console.log(app.pagination);
-                console.log(app.rows.length);
+                // console.log(app.rows.length);
                 if (app.rows.length != 0) {
                     app.show = true;
                 } else {
                     app.show = false;
                 }
+
+                // google analytics
+                app.$ga.page({
+                    page: '/',
+                    title: app.seo.titleSeo,
+                    location: window.location.href
+                });
             }).catch(function (resp) {
                 // console.log(resp);
                 // alert("Could not load data");
@@ -69220,12 +69224,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
 
-                // app.$ga.page({
-                //     page: slug,
-                //     title: app.seo.title,
-                //     location: window.location.href
-                // })
-
+                // google analytics
+                app.$ga.page({
+                    page: slug,
+                    title: app.seo.title,
+                    location: window.location.href
+                });
             }).catch(function (resp) {
                 // console.log(resp);
                 alert("Could not load data");

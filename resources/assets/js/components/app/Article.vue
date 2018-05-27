@@ -225,11 +225,12 @@ export default {
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
 
-                // app.$ga.page({
-                //     page: slug,
-                //     title: app.seo.title,
-                //     location: window.location.href
-                // })
+                // google analytics
+                app.$ga.page({
+                    page: slug,
+                    title: app.seo.title,
+                    location: window.location.href
+                })
 
                 
             })

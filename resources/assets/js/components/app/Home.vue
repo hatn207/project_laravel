@@ -172,9 +172,9 @@
                 rowFirst: {},
                 fav_gg: null,
                 seo: {
-                    titleSeo: '',
-                    description: '',
-                    keywords: ''
+                    titleSeo: 'Health News | Trang Chủ',
+                    description: 'trang tin tức sức khỏe',
+                    keywords: 'tin tức, sức khỏe'
                 }
             }
         },
@@ -231,12 +231,19 @@
                     app.rowFirst = resp.data.data[0];
                     app.$set(app.rowFirst, 'fav', 'http://www.google.com/s2/favicons?domain='+app.rowFirst.website_url);
                     // console.log(app.pagination);
-                    console.log(app.rows.length);
+                    // console.log(app.rows.length);
                     if (app.rows.length != 0) {
                         app.show = true;
                     } else {
                         app.show = false;
                     }
+
+                    // google analytics
+                    app.$ga.page({
+                        page: '/',
+                        title: app.seo.titleSeo,
+                        location: window.location.href
+                    })
 
                 })
                 .catch(function (resp) {
