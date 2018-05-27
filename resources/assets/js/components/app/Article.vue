@@ -161,15 +161,7 @@
     </div>
     <!--Left Section-->
 </template>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119908639-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
 
-gtag('config', 'UA-119908639-1');
-</script>
 <script>
 export default {
     data: function () {
@@ -235,6 +227,21 @@ export default {
                 app.seo.titleSeo = app.seo.title;
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
+
+                Vue.use(VueAnalytics, {
+                    id: 'UA-119908639-1',
+                    checkDuplicatedScript: true,
+                    router,
+                    autoTracking: {
+                        pageviewTemplate (route) {
+                        return {
+                            page: route.path,
+                            title: app.seo.title,
+                            location: window.location.href
+                        }
+                        }
+                    }
+                })
                 
             })
             .catch(function (resp) {
