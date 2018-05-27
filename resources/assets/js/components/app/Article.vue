@@ -206,6 +206,7 @@ export default {
     methods: {
         getData() {
             var app = this;
+            var cat = app.$route.params.cate;
             var slug = app.$route.params.slug;
             axios.get('/api/v1/app-article-detail/' + slug)
             .then(function (resp) {
@@ -227,7 +228,7 @@ export default {
 
                 // google analytics
                 app.$ga.page({
-                    page: app.$route.params,
+                    page: cat+slug,
                     title: app.seo.title,
                     location: window.location.href
                 })

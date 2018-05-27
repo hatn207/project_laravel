@@ -69206,6 +69206,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         getData: function getData() {
             var app = this;
+            var cat = app.$route.params.cate;
             var slug = app.$route.params.slug;
             axios.get('/api/v1/app-article-detail/' + slug).then(function (resp) {
                 app.comments = resp.data.article.comments;
@@ -69226,7 +69227,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 // google analytics
                 app.$ga.page({
-                    page: app.$route.params,
+                    page: cat + slug,
                     title: app.seo.title,
                     location: window.location.href
                 });
