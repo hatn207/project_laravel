@@ -12,6 +12,11 @@ use App\Seo;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
+use Analytics;
+use Spatie\Analytics\Period;
+
+use Carbon;
+
 class AppController extends Controller
 {
     /**
@@ -21,6 +26,35 @@ class AppController extends Controller
      */
     public function index()
     {
+
+        //thong ke tung thang ke tu 1 nam truoc den nay
+        $analyticsData = Analytics::performQuery(
+            Period::years(1),
+            'ga:sessions',
+            [
+                'metrics' => 'ga:sessions, ga:pageviews',
+                'dimensions' => 'ga:yearMonth'
+            ]
+        );
+
+        $startDate = Carbon::now()->subYear();
+        $endDate = Carbon::now();
+
+        $date = Period::create($startDate, $endDate);
+
+        // truy xuất dữ liệu khách truy cập và số lần truy cập trang cho ngày hiện tại và bảy ngày qua
+        $analyticsData2 = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+
+        // tìm nạp các trang được truy cập nhiều nhất cho hôm nay và tuần trước
+        $analyticsData3 = Analytics::fetchMostVisitedPages(Period::days(7));
+
+
+        // var_dump($date);
+        var_dump($analyticsData3);
+        // var_dump($analyticsData->rows);
+        die();
+        return $analyticsData;
+
         $paginate_item = 7;
         // $category = Category::where('status', Category::STATUS_ACTIVE)->first();
         $articles = Article::where('status', Article::STATUS_ACTIVE)
