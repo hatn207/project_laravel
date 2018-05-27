@@ -11743,14 +11743,6 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_analytics___default.a, {
     checkDuplicatedScript: true,
     router: router,
     autoTracking: {
-        pageviewTemplate: function pageviewTemplate(route) {
-            return {
-                page: route.path,
-                title: document.title,
-                location: window.location.href
-            };
-        },
-
         skipSamePath: true
     }
 });

@@ -173,13 +173,6 @@ Vue.use(VueAnalytics, {
     checkDuplicatedScript: true,
     router,
     autoTracking: {
-        pageviewTemplate (route) {
-          return {
-            page: route.path,
-            title: document.title,
-            location: window.location.href
-          }
-        },
         skipSamePath: true
     }
 })
