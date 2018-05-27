@@ -29,10 +29,6 @@ Vue.use(VueScrollTo, {
 
 // google analytics
 import VueAnalytics from 'vue-analytics'
-Vue.use(VueAnalytics, {
-  id: 'UA-119908639-1',
-  checkDuplicatedScript: true
-})
 
 //truncate
 var VueTruncate = require('vue-truncate-filter')
@@ -169,6 +165,12 @@ const routes = [
     {path: '/tags/:slug', component: TagArticle, name: 'tagArticle'},
     
 ]
+
+Vue.use(VueAnalytics, {
+    id: 'UA-119908639-1',
+    checkDuplicatedScript: true,
+    routes
+})
 
 const router = new VueRouter({ routes, linkActiveClass: 'active', mode: 'history'})
 
