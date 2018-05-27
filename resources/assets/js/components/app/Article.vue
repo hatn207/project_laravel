@@ -228,20 +228,6 @@ export default {
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
 
-                Vue.use(VueAnalytics, {
-                    id: 'UA-119908639-1',
-                    checkDuplicatedScript: true,
-                    router,
-                    autoTracking: {
-                        pageviewTemplate (route) {
-                        return {
-                            page: route.path,
-                            title: app.seo.title,
-                            location: window.location.href
-                        }
-                        }
-                    }
-                })
                 
             })
             .catch(function (resp) {
