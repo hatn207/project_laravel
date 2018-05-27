@@ -7,7 +7,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Health News - Trang tin tức sức khoẻ</title>
 
     <!-- favicon -->
     <link href="{{ asset('images/fav.png')}}" rel=icon>
