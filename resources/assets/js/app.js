@@ -27,6 +27,13 @@ Vue.use(VueScrollTo, {
      y: true
  })
 
+// google analytics
+import VueAnalytics from 'vue-analytics'
+Vue.use(VueAnalytics, {
+  id: 'UA-119908639-1',
+  checkDuplicatedScript: true
+})
+
 //truncate
 var VueTruncate = require('vue-truncate-filter')
 Vue.use(VueTruncate)
