@@ -171,7 +171,10 @@ const router = new VueRouter({ routes, linkActiveClass: 'active', mode: 'history
 Vue.use(VueAnalytics, {
     id: 'UA-119908639-1',
     checkDuplicatedScript: true,
-    router
+    router,
+    autoTracking: {
+        screenview: true
+    }
 })
 
 const app = new Vue({ router }).$mount('#main-wrapper')
