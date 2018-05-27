@@ -69217,11 +69217,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
 
-                app.$ga.page({
-                    page: app.$route,
-                    title: app.seo.title,
-                    location: window.location.href
-                });
+                app.$ga.page(app.$route);
             }).catch(function (resp) {
                 // console.log(resp);
                 alert("Could not load data");

@@ -225,11 +225,7 @@ export default {
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
 
-                app.$ga.page({
-                    page: app.$route,
-                    title: app.seo.title,
-                    location: window.location.href
-                })
+                app.$ga.page(app.$route)
 
                 
             })
