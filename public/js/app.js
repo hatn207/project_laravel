@@ -11736,13 +11736,13 @@ var routes = [
     // ]
 }, { path: '/:slug', component: __WEBPACK_IMPORTED_MODULE_19__components_app_Category_vue___default.a, name: 'category' }, { path: '/:cate/:slug', component: __WEBPACK_IMPORTED_MODULE_20__components_app_Article_vue___default.a, name: 'article' }, { path: '/tags/:slug', component: __WEBPACK_IMPORTED_MODULE_21__components_app_TagArticle_vue___default.a, name: 'tagArticle' }];
 
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ routes: routes, linkActiveClass: 'active', mode: 'history' });
+
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_analytics___default.a, {
     id: 'UA-119908639-1',
     checkDuplicatedScript: true,
-    routes: routes
+    router: router
 });
-
-var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ routes: routes, linkActiveClass: 'active', mode: 'history' });
 
 var app = new Vue({ router: router }).$mount('#main-wrapper');
 /**
