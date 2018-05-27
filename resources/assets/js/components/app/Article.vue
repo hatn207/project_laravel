@@ -181,7 +181,6 @@ export default {
             nameError: null,
             errorsContent: false,
             contentError: null,
-            // title: 'Health News',
             seo: {
                 titleSeo: '',
                 description: '',
@@ -201,9 +200,7 @@ export default {
                 { name: 'description', content: this.seo.description }
             ],
             // if no subcomponents specify a metaInfo.title, this title will be used
-            title: this.seo.titleSeo,
-            // all titles will be injected into this template
-            // titleTemplate: '%s | '+this.titleSeo
+            title: this.seo.titleSeo
         }
     },
     methods: {
