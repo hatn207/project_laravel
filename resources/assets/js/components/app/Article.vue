@@ -227,7 +227,7 @@ export default {
 
                 // google analytics
                 app.$ga.page({
-                    page: slug,
+                    page: app.$route.params,
                     title: app.seo.title,
                     location: window.location.href
                 })
