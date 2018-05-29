@@ -31,6 +31,7 @@
     <script src="{{ asset('theme/common/bootstrap/js/bootstrap.min.js') }}"></script>
     
     {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
+    <script src="{{ asset('js/Chart.js') }}"></script>
 </head>
 <body>
     <div id="main-wrapper">

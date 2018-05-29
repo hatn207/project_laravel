@@ -16,6 +16,9 @@
                 <a href="/"><i class="fa fa-dashboard fa-fw"></i> Bảng điều khiển</a>
             </li> --}}
             <li>
+                <a class="{{ Request::segment(2) === 'analytic' ? 'active' : Request::segment(2) }}" href="{{ route('admin.analytic.index', ['all' => 'index']) }}"><i class="fa fa-dashboard fa-fw"></i> Bảng điều khiển</a>
+            </li>
+            <li>
                 <a class="{{ Request::segment(2) === 'category' ? 'active' : Request::segment(2) }}" href="{{ route('admin.category.index', ['all' => 'list']) }}"><i class="fa fa-tags"></i> Quản lý danh mục</a>
             </li>
             <li>

@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('category/{all}', 'CategoryController@index')->name('category.index')->where(['all' => '.*']);
     Route::get('article/{all}', 'ArticleController@index')->name('article.index')->where(['all' => '.*']);
     Route::get('trend/{all}', 'TrendController@index')->name('trend.index')->where(['all' => '.*']);
+    Route::get('analytic/{all}', 'AnalyticsController@index')->name('analytic.index')->where(['all' => '.*']);
 });
 
 Route::get('/{all}', 'HomeController@index')->name('home')->where(['all' => '.*']);
