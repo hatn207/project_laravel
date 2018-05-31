@@ -69331,7 +69331,7 @@ var render = function() {
             _c(
               "a",
               { attrs: { href: _vm.article.website_url, target: "_blank" } },
-              [_vm._v("article.website_url")]
+              [_vm._v(_vm._s(_vm.article.website_url))]
             )
           ])
         : _vm._e(),

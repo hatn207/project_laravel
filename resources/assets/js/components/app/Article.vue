@@ -40,7 +40,7 @@
 
         <div class="entity_content" v-if="article.website_url">
             <!-- <a :href="article.website_url" class="btn btn-info" target="_blank">Đọc bài báo đầy đủ</a> -->
-            Nguồn: <a :href="article.website_url" target="_blank">article.website_url</a>
+            Nguồn: <a :href="article.website_url" target="_blank">{{ article.website_url }}</a>
         </div>
         <!-- entity_thumb -->
 
