@@ -69330,7 +69330,10 @@ var render = function() {
             _vm._v("\n        Nguồn: "),
             _c(
               "a",
-              { attrs: { href: _vm.article.website_url, target: "_blank" } },
+              {
+                staticStyle: { color: "#7d7d7d" },
+                attrs: { href: _vm.article.website_url, target: "_blank" }
+              },
               [_vm._v(_vm._s(_vm.article.website_url))]
             )
           ])
