@@ -7,8 +7,8 @@
         <!-- entity_title -->
 
         <div class="entity_meta">
-            <!-- <img :src="fav_gg + article.website_url"> {{ article.website_name }} -->
-            Danh mục: <span class="tag orange">{{ category.name }}</span>
+            <img :src="fav_gg + article.website_url"> {{ article.website_name }}
+            <!-- Danh mục: <span class="tag orange">{{ category.name }}</span> -->
         </div>
 
         <div class="entity_meta">
@@ -16,7 +16,7 @@
             <!-- , by: <a href="#">Eric joan</a> -->
         </div>
 
-        <!-- <span class="tag orange">{{ category.name }}</span> -->
+        <span class="tag orange">{{ category.name }}</span>
 
         <!-- <div class="entity_rating">
             <i class="fa fa-star"></i>
@@ -35,14 +35,12 @@
         </div>
         <!-- entity_thumb -->
 
-        <div style="color: 'black'" class="entity_content" v-html="article.headword"></div>
+        <div class="entity_content" style="color: black" v-html="article.headword"></div>
         <!-- entity_content -->
 
-        <!-- <div class="entity_content" v-if="article.website_url"> -->
+        <div class="entity_content" v-if="article.website_url">
             <!-- <a :href="article.website_url" class="btn btn-info" target="_blank">Đọc bài báo đầy đủ</a> -->
-        <!-- </div> -->
-        <div class="entity_content">
-            Nguồn: <img :src="fav_gg + article.website_url"> {{ article.website_name }}
+            Nguồn: <a :href="article.website_url" target="_blank">article.website_url</a>
         </div>
         <!-- entity_thumb -->
 

@@ -69166,8 +69166,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -69292,16 +69290,18 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "entity_meta" }, [
-        _vm._v("\n        Danh mục: "),
-        _c("span", { staticClass: "tag orange" }, [
-          _vm._v(_vm._s(_vm.category.name))
-        ])
+        _c("img", { attrs: { src: _vm.fav_gg + _vm.article.website_url } }),
+        _vm._v(" " + _vm._s(_vm.article.website_name) + "\n        ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "entity_meta" }, [
         _vm._v(
           "\n        Cập nhật: " + _vm._s(_vm.article.updated_at) + "\n        "
         )
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "tag orange" }, [
+        _vm._v(_vm._s(_vm.category.name))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "entity_content" }, [
@@ -69321,15 +69321,20 @@ var render = function() {
       _vm._v(" "),
       _c("div", {
         staticClass: "entity_content",
-        staticStyle: { color: "'black'" },
+        staticStyle: { color: "black" },
         domProps: { innerHTML: _vm._s(_vm.article.headword) }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "entity_content" }, [
-        _vm._v("\n        Nguồn: "),
-        _c("img", { attrs: { src: _vm.fav_gg + _vm.article.website_url } }),
-        _vm._v(" " + _vm._s(_vm.article.website_name) + "\n    ")
-      ]),
+      _vm.article.website_url
+        ? _c("div", { staticClass: "entity_content" }, [
+            _vm._v("\n        Nguồn: "),
+            _c(
+              "a",
+              { attrs: { href: _vm.article.website_url, target: "_blank" } },
+              [_vm._v("article.website_url")]
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "entity_footer" }, [
         _c(
