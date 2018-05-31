@@ -16,7 +16,7 @@
             <!-- , by: <a href="#">Eric joan</a> -->
         </div>
 
-        <span class="tag orange">{{ category.name }}</span>
+        <!-- <span class="tag orange">{{ category.name }}</span> -->
 
         <!-- <div class="entity_rating">
             <i class="fa fa-star"></i>
@@ -35,13 +35,13 @@
         </div>
         <!-- entity_thumb -->
 
-        <div class="entity_content" v-html="article.headword"></div>
+        <div style="color: 'black'" class="entity_content" v-html="article.headword"></div>
         <!-- entity_content -->
 
         <!-- <div class="entity_content" v-if="article.website_url"> -->
             <!-- <a :href="article.website_url" class="btn btn-info" target="_blank">Đọc bài báo đầy đủ</a> -->
         <!-- </div> -->
-        <div class="entity_meta">
+        <div class="entity_content">
             Nguồn: <img :src="fav_gg + article.website_url"> {{ article.website_name }}
         </div>
         <!-- entity_thumb -->

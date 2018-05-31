@@ -69304,10 +69304,6 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("span", { staticClass: "tag orange" }, [
-        _vm._v(_vm._s(_vm.category.name))
-      ]),
-      _vm._v(" "),
       _c("div", { staticClass: "entity_content" }, [
         _c("figure", [
           _c("img", {
@@ -69325,10 +69321,11 @@ var render = function() {
       _vm._v(" "),
       _c("div", {
         staticClass: "entity_content",
+        staticStyle: { color: "'black'" },
         domProps: { innerHTML: _vm._s(_vm.article.headword) }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "entity_meta" }, [
+      _c("div", { staticClass: "entity_content" }, [
         _vm._v("\n        Nguồn: "),
         _c("img", { attrs: { src: _vm.fav_gg + _vm.article.website_url } }),
         _vm._v(" " + _vm._s(_vm.article.website_name) + "\n    ")
