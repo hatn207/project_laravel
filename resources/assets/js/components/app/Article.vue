@@ -7,7 +7,8 @@
         <!-- entity_title -->
 
         <div class="entity_meta">
-            <img :src="fav_gg + article.website_url"> {{ article.website_name }}
+            <!-- <img :src="fav_gg + article.website_url"> {{ article.website_name }} -->
+            Danh mục: <span class="tag orange">{{ category.name }}</span>
         </div>
 
         <div class="entity_meta">
@@ -37,8 +38,11 @@
         <div class="entity_content" v-html="article.headword"></div>
         <!-- entity_content -->
 
-        <div class="entity_content" v-if="article.website_url">
-            <a :href="article.website_url" class="btn btn-info" target="_blank">Đọc bài báo đầy đủ</a>
+        <!-- <div class="entity_content" v-if="article.website_url"> -->
+            <!-- <a :href="article.website_url" class="btn btn-info" target="_blank">Đọc bài báo đầy đủ</a> -->
+        <!-- </div> -->
+        <div class="entity_meta">
+            Nguồn: <img :src="fav_gg + article.website_url"> {{ article.website_name }}
         </div>
         <!-- entity_thumb -->
 
