@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Analytics;
 use Spatie\Analytics\Period;
 use Carbon;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Traits\Macroable;
 
 class AnalyticsController extends Controller
 {
@@ -14,10 +16,37 @@ class AnalyticsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        switch ($request->input('search')) {
+            case '1month':
+                $period = Period::months(1);
+                break;
+
+            case '7days':
+                $period = Period::days(7);
+                break;
+            
+            default:
+                $period = Period::days(10);
+                break;
+        }
+        // thong ke top content
+        $analyticsData = Analytics::performQuery(
+            $period,
+            'ga:pagePath',
+            [
+                'metrics' => 'ga:pageviews,ga:uniquePageviews,ga:timeOnPage,ga:exits,ga:sessions',
+                'dimensions' => 'ga:pagePath',
+                'sort' => '-ga:pageviews'
+            ]
+        );
+        $cls_data = $this->collectionRender($analyticsData);
+        // var_dump($cls_data);
+        // die();
+
         // thông kê tổng số truy cập và số xem trang theo ngay. 7 ngày
-        $row5 = Analytics::fetchTotalVisitorsAndPageViews(Period::days(7));
+        $row5 = Analytics::fetchTotalVisitorsAndPageViews($period);
         
         $day_ary = [];
         $visitors_ary = [];
@@ -61,7 +90,28 @@ class AnalyticsController extends Controller
         ])
         ->options([]);
 
-        return view('admin.analytic.index', compact('chartjs'))->with($sum);
+        return view('admin.analytic.index', compact('chartjs', 'cls_data'))->with($sum);
+    }
+
+    public function collectionRender($response = []){
+        return collect($response['rows'] ?? [])->map(function (array $dateRow) {
+            $seconds = (int) $dateRow[3];
+            $hours = floor($seconds / 3600);
+            $mins = floor($seconds / 60 % 60);
+            $secs = floor($seconds % 60);
+            return [
+                // 'date' => Carbon::createFromFormat('Ymd', $dateRow[0]),
+                'pagePath' => $dateRow[0],
+                // 'pageTitle' => $dateRow[2],
+                // 'visitors' => (int) $dateRow[2],
+                'pageViews' => (int) $dateRow[1],
+                'pageViewsUnique' => (int) $dateRow[2],
+                'timeOnPage' => sprintf('%02d:%02d:%02d', $hours, $mins, $secs),
+                'exits' => (int) $dateRow[4],
+                'sessions' => (int) $dateRow[5],
+                'rateExits' => $dateRow[5] != '0' ? number_format(100 / (int) $dateRow[5] * (int) $dateRow[4], 2) : '0.00' 
+            ];
+        });
     }
 
     /**
