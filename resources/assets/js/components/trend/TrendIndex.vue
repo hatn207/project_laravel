@@ -2,11 +2,15 @@
     <div>
         <div class="form-group">
             <router-link :to="{name: 'createTrend'}" class="btn btn-success">Tạo mới</router-link>
+            <a href="#" class="btn btn-info pull-right" v-on:click="getGTrends()">
+                Lấy từ Google Trends
+            </a>
         </div>
 
         <div class="panel panel-default">
             <div class="panel-heading">Danh sách</div>
             <div class="panel-body">
+                <pulse-loader :loading="loading"></pulse-loader>
                 <div class="table-responsive" v-if="show">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
@@ -86,7 +90,8 @@
                     current_page: 1
                 },
                 offset: 4,
-                show: false
+                show: false,
+                loading: false
             }
         },
         computed: {
@@ -122,6 +127,7 @@
             },
             getData(page) {
                 var app = this;
+                app.loading = true;
                 axios.get('/api/v1/trend?page='+page)
                 .then(function (resp) {
                     app.rows = resp.data.data;
@@ -130,6 +136,7 @@
                     if (app.rows.length != 0) {
                         app.show = true;
                     }
+                    app.loading = false;
                 })
                 .catch(function (resp) {
                     console.log(resp);
@@ -147,6 +154,18 @@
                             alert("Could not delete");
                         });
                 }
+            },
+            getGTrends() {
+                var app = this;
+                app.loading = true;
+                axios.get('/api/v1/trend/create')
+                .then(function (resp) {
+                    app.getData(app.pagination.current_page);
+                    app.loading = false;
+                })
+                .catch(function (resp) {
+                    alert("Could not load data");
+                });
             }
         }
     }

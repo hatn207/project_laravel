@@ -21,7 +21,7 @@ class TrendController extends Controller
         // $trends = Trend::where('status', Trend::STATUS_ACTIVE)->get();
         // $trend = Trend::find(1);
         // $trend_articles = $trend->rssarticles()->get();
-
+        
         $trends = Trend::latest()
             ->where('status', Trend::STATUS_ACTIVE)
             ->withCount('articles')
@@ -38,7 +38,17 @@ class TrendController extends Controller
      */
     public function create()
     {
-        //
+        // get google hot trends
+        $page = file_get_contents('https://www.google.com.vn/trends/hottrends/atom/hourly?pn=p28');
+        preg_match_all('(<a href="(.+)">(.*)</a>)siU', $page, $trends);
+
+        foreach ($trends[2] as $trend) {
+            Trend::firstOrCreate(['content' => $trend, 'slug' => str_slug($trend), 'status' => Trend::STATUS_ACTIVE]);
+        }
+
+        return response()->json([
+            'msg' => 'Lấy dữ liệu từ Google Trends thành công!'
+        ], 200);
     }
 
     /**

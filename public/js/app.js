@@ -61418,6 +61418,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -61432,7 +61436,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 current_page: 1
             },
             offset: 4,
-            show: false
+            show: false,
+            loading: false
         };
     },
     computed: {
@@ -61469,6 +61474,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getData: function getData(page) {
             var app = this;
+            app.loading = true;
             axios.get('/api/v1/trend?page=' + page).then(function (resp) {
                 app.rows = resp.data.data;
                 app.pagination = resp.data;
@@ -61476,6 +61482,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (app.rows.length != 0) {
                     app.show = true;
                 }
+                app.loading = false;
             }).catch(function (resp) {
                 console.log(resp);
                 alert("Could not load data");
@@ -61490,6 +61497,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     alert("Could not delete");
                 });
             }
+        },
+        getGTrends: function getGTrends() {
+            var app = this;
+            app.loading = true;
+            axios.get('/api/v1/trend/create').then(function (resp) {
+                app.getData(app.pagination.current_page);
+                app.loading = false;
+            }).catch(function (resp) {
+                alert("Could not load data");
+            });
         }
     }
 });
@@ -61514,6 +61531,20 @@ var render = function() {
             attrs: { to: { name: "createTrend" } }
           },
           [_vm._v("Tạo mới")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-info pull-right",
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                _vm.getGTrends()
+              }
+            }
+          },
+          [_vm._v("\n            Lấy từ Google Trends\n        ")]
         )
       ],
       1
@@ -61522,185 +61553,197 @@ var render = function() {
     _c("div", { staticClass: "panel panel-default" }, [
       _c("div", { staticClass: "panel-heading" }, [_vm._v("Danh sách")]),
       _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _vm.show
-          ? _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass: "table table-striped table-bordered table-hover"
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.rows, function(row, index) {
-                      return _c("tr", [
-                        _c("td", [_vm._v(_vm._s(index + 1))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(row.content))]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          [
+      _c(
+        "div",
+        { staticClass: "panel-body" },
+        [
+          _c("pulse-loader", { attrs: { loading: _vm.loading } }),
+          _vm._v(" "),
+          _vm.show
+            ? _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-striped table-bordered table-hover"
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.rows, function(row, index) {
+                        return _c("tr", [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(row.content))]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "showTrend",
+                                      params: { slug: row.slug + ".article" }
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                Bài viết (" +
+                                      _vm._s(row.articles_count) +
+                                      ")\n                            "
+                                  )
+                                ]
+                              ),
+                              _vm._v(
+                                "\n                            |\n                            "
+                              ),
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "showTrend",
+                                      params: { slug: row.slug + ".rssarticle" }
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                Bài viết RSS (" +
+                                      _vm._s(row.rssarticles_count) +
+                                      ")\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(row.created_at))]),
+                          _vm._v(" "),
+                          _c("td", [
                             _c(
-                              "router-link",
+                              "a",
                               {
-                                attrs: {
-                                  to: {
-                                    name: "showTrend",
-                                    params: { slug: row.slug + ".article" }
+                                staticClass: "btn btn-xs btn-danger",
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.deleteEntry(row.id, index)
                                   }
                                 }
                               },
                               [
                                 _vm._v(
-                                  "\n                                Bài viết (" +
-                                    _vm._s(row.articles_count) +
-                                    ")\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(
-                              "\n                            |\n                            "
-                            ),
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: {
-                                    name: "showTrend",
-                                    params: { slug: row.slug + ".rssarticle" }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                Bài viết RSS (" +
-                                    _vm._s(row.rssarticles_count) +
-                                    ")\n                            "
+                                  "\n                                Xoá\n                            "
                                 )
                               ]
                             )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(row.created_at))]),
-                        _vm._v(" "),
-                        _c("td", [
+                          ])
+                        ])
+                      })
+                    )
+                  ]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.pagination.last_page > 1
+            ? _c("div", { staticClass: "pagination" }, [
+                _c(
+                  "ul",
+                  { staticClass: "pagination" },
+                  [
+                    _vm.pagination.current_page > 1
+                      ? _c("li", [
                           _c(
                             "a",
                             {
-                              staticClass: "btn btn-xs btn-danger",
-                              attrs: { href: "#" },
+                              attrs: {
+                                href: "javascript:void(0)",
+                                "aria-label": "Previous"
+                              },
                               on: {
                                 click: function($event) {
-                                  _vm.deleteEntry(row.id, index)
+                                  $event.preventDefault()
+                                  _vm.changePage(
+                                    _vm.pagination.current_page - 1
+                                  )
                                 }
                               }
                             },
                             [
-                              _vm._v(
-                                "\n                                Xoá\n                            "
-                              )
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("«")
+                              ])
                             ]
                           )
                         ])
-                      ])
-                    })
-                  )
-                ]
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.pagination.last_page > 1
-          ? _c("div", { staticClass: "pagination" }, [
-              _c(
-                "ul",
-                { staticClass: "pagination" },
-                [
-                  _vm.pagination.current_page > 1
-                    ? _c("li", [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href: "javascript:void(0)",
-                              "aria-label": "Previous"
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.pagesNumber, function(page) {
+                      return _c(
+                        "li",
+                        {
+                          class: { active: page == _vm.pagination.current_page }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "javascript:void(0)" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.changePage(page)
+                                }
+                              }
                             },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.changePage(_vm.pagination.current_page - 1)
+                            [_vm._v(_vm._s(page))]
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _vm.pagination.current_page < _vm.pagination.last_page
+                      ? _c("li", [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "javascript:void(0)",
+                                "aria-label": "Next"
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.changePage(
+                                    _vm.pagination.current_page + 1
+                                  )
+                                }
                               }
-                            }
-                          },
-                          [
-                            _c("span", { attrs: { "aria-hidden": "true" } }, [
-                              _vm._v("«")
-                            ])
-                          ]
-                        )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm._l(_vm.pagesNumber, function(page) {
-                    return _c(
-                      "li",
-                      {
-                        class: { active: page == _vm.pagination.current_page }
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            attrs: { href: "javascript:void(0)" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.changePage(page)
-                              }
-                            }
-                          },
-                          [_vm._v(_vm._s(page))]
-                        )
-                      ]
-                    )
-                  }),
-                  _vm._v(" "),
-                  _vm.pagination.current_page < _vm.pagination.last_page
-                    ? _c("li", [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href: "javascript:void(0)",
-                              "aria-label": "Next"
                             },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.changePage(_vm.pagination.current_page + 1)
-                              }
-                            }
-                          },
-                          [
-                            _c("span", { attrs: { "aria-hidden": "true" } }, [
-                              _vm._v("»")
-                            ])
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ],
-                2
-              )
-            ])
-          : _vm._e()
-      ])
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("»")
+                              ])
+                            ]
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ])
+            : _vm._e()
+        ],
+        1
+      )
     ])
   ])
 }

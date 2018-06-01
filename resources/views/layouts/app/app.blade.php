@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <p>&copy; Copyright 2018-Health News . Thiết kế bởi: <a href="#">Health News</a>
+                        <p>&copy; Copyright 2018. Thiết kế bởi: <a href="#">Trần Ngọc Hà - Khoa CNTT - ĐH Đông Á</a>
                         </p></div>
                     <div class="col-sm-3">
                         <p>Tin Tức Sức Khoẻ</p>
