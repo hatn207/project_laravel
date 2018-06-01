@@ -26,7 +26,7 @@ class TrendController extends Controller
             ->where('status', Trend::STATUS_ACTIVE)
             ->withCount('articles')
             ->withCount('rssarticles')
-            ->paginate(15);
+            ->paginate(20);
 
         return $trends;
     }

@@ -126,12 +126,12 @@ class RssArticleController extends Controller
 
         // update status rss article
         $rssArticle = RssArticle::findOrFail($id);
-        // $rssArticle->status = RssArticle::STATUS_PUBLIC;
-        // $rssArticle->save();
+        $rssArticle->status = RssArticle::STATUS_PUBLIC;
+        $rssArticle->save();
         //delete trends rss article
         $rssArticle->trends()->sync([]);
 
-        $rssArticle->delete();
+        // $rssArticle->delete();
 
         // save to table articles
         $article = new Article;
