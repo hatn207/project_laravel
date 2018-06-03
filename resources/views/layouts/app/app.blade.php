@@ -10,11 +10,12 @@
 
     <title>{{ $title }}</title>
     <!-- FB meta -->
-    <meta property="og:url"           content="{{ $urlOG }}" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="{{ $title }}" />
-    <meta property="og:description"   content="{{ $descriptionOG }}" />
-    <meta property="og:image"         content="{{ $imageOG }}" />
+    <meta property="fb:app_id" content="954301317915837">
+    <meta property="og:url" content="{{ $urlOG }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $title }}" />
+    <meta property="og:description" content="{{ $descriptionOG }}" />
+    <meta property="og:image" content="{{ $imageOG }}" />
 
     <!-- favicon -->
     <link href="{{ asset('images/fav.png')}}" rel=icon>
