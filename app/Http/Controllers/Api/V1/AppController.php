@@ -17,6 +17,8 @@ use Spatie\Analytics\Period;
 
 use Carbon;
 
+use App\Rss;
+
 class AppController extends Controller
 {
     /**
@@ -26,6 +28,58 @@ class AppController extends Controller
      */
     public function index()
     {
+        // $website_url = 'https://trends.google.com/trends/hottrends/atom/feed?pn=p28';
+        // $rss = new Rss();
+        // //validate is xml
+        // $feed_string = file_get_contents($website_url);
+        // if ($feed_string && !empty($feed_string)) {
+        //     if (!$validation_URL_live = $rss->is_xml($feed_string)){
+        //         // return $this->action_index('xml not found', \Input::post());
+        //         return response()->json([
+        //             'msg' => 'Không phải định dạng XML!'
+        //         ], 422);
+        //     } else{
+        //         $param['type'] = null;
+                
+        //         //is type rdf
+        //         if($rss->is_rdf($feed_string)){
+        //             $param['type'] = Rss::TYPE_IS_RDF;
+        //             $param['feed'] = $feed_string;
+        //         }
+                
+        //         //is type rss
+        //         if($rss->is_rss($feed_string)){
+        //             $param['type'] = Rss::TYPE_IS_RSS;
+        //             $param['feed'] = $feed_string;
+        //         }
+                
+        //         //is type atom
+        //         if($rss->is_atom($feed_string)){
+        //             $param['type'] = Rss::TYPE_IS_ATOM;
+        //             $param['feed'] = $feed_string;
+        //         }
+
+        //         return response()->json([
+        //             'msg' => $param
+        //         ], 200);
+                
+        //         if (!empty($param['type'])) {
+        //             //save rss
+        //             if (!$article = $rss->create_rss($param, Rss::ACTION_CREATE)) {
+        //                 return response()->json([
+        //                     'msg' => 'Không thể tạo Rss!'
+        //                 ], 422);
+        //             }
+        //         } else {
+        //             return response()->json([
+        //                 'msg' => 'Không thể tạo Rss!'
+        //             ], 422);
+        //         }
+        //         return response()->json([
+        //             'msg' => 'Tạo thành công!'
+        //         ], 200);
+        //     }
+        // }
 
         // //thong ke tung thang ke tu 1 nam truoc den nay
         // $analyticsData = Analytics::performQuery(

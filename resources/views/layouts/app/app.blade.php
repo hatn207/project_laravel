@@ -8,6 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>{{ $title }}</title>
+    <!-- FB meta -->
+    <meta property="og:url"           content="{{ $urlOG }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{ $title }}" />
+    <meta property="og:description"   content="{{ $descriptionOG }}" />
+    <meta property="og:image"         content="{{ $imageOG }}" />
+
     <!-- favicon -->
     <link href="{{ asset('images/fav.png')}}" rel=icon>
 
