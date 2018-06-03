@@ -175,6 +175,8 @@
     </div>
     <!--Entity Comments -->
 
+    <div class="fb-comments" :data-href="'http://hatn-donga.herokuapp.com'+this.$route.fullPath" data-numposts="5"></div>
+
     </div>
     <!--Left Section-->
 </template>

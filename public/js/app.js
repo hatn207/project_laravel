@@ -69564,6 +69564,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -70078,7 +70080,15 @@ var render = function() {
           ]
         )
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c("div", {
+      staticClass: "fb-comments",
+      attrs: {
+        "data-href": "http://hatn-donga.herokuapp.com" + this.$route.fullPath,
+        "data-numposts": "5"
+      }
+    })
   ])
 }
 var staticRenderFns = [
