@@ -69600,6 +69600,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 keywords: ''
             },
             property: {
+                ogAppId: '954301317915837',
                 ogUrl: '',
                 ogType: 'website',
                 ogTitle: '',
@@ -69774,8 +69775,9 @@ var render = function() {
       _vm._v(" "),
       _c("div", {
         staticClass: "fb-like",
+        staticStyle: { "margin-bottom": "5px" },
         attrs: {
-          "data-href": this.$route.fullPath,
+          "data-href": "http://hatn-donga.herokuapp.com" + this.$route.fullPath,
           "data-layout": "standard",
           "data-action": "like",
           "data-size": "small",

@@ -56,7 +56,7 @@
                 </div>
             </social-sharing> -->
         </div>
-        <div class="fb-like" :data-href="this.$route.fullPath" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+        <div class="fb-like" style="margin-bottom: 5px;" :data-href="'http://hatn-donga.herokuapp.com'+this.$route.fullPath" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
         <!-- entity_thumb -->
 
         <div class="entity_footer">
@@ -204,6 +204,7 @@ export default {
                 keywords: ''
             },
             property: {
+                ogAppId: '954301317915837',
                 ogUrl: '',
                 ogType: 'website',
                 ogTitle: '',
