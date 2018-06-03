@@ -69768,8 +69768,40 @@ var render = function() {
                   attrs: { href: _vm.article.website_url, target: "_blank" }
                 },
                 [_vm._v(_vm._s(_vm.article.website_url))]
-              )
-            ]
+              ),
+              _vm._v(" "),
+              _c("social-sharing", {
+                attrs: {
+                  url: this.$route.fullPath,
+                  title: "The Progressive JavaScript Framework",
+                  description:
+                    "Intuitive, Fast and Composable MVVM for building interactive interfaces.",
+                  quote:
+                    "Vue is a progressive framework for building user interfaces.",
+                  hashtags: "vuejs,javascript,framework",
+                  "twitter-user": "vuejs"
+                },
+                inlineTemplate: {
+                  render: function() {
+                    var _vm = this
+                    var _h = _vm.$createElement
+                    var _c = _vm._self._c || _h
+                    return _c(
+                      "div",
+                      [
+                        _c("network", { attrs: { network: "facebook" } }, [
+                          _c("i", { staticClass: "fa fa-facebook" }),
+                          _vm._v(" Facebook\n                ")
+                        ])
+                      ],
+                      1
+                    )
+                  },
+                  staticRenderFns: []
+                }
+              })
+            ],
+            1
           )
         : _vm._e(),
       _vm._v(" "),
