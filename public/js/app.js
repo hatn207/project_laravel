@@ -70086,7 +70086,8 @@ var render = function() {
       staticClass: "fb-comments",
       attrs: {
         "data-href": "http://hatn-donga.herokuapp.com" + this.$route.fullPath,
-        "data-numposts": "5"
+        "data-numposts": "5",
+        "data-width": "100%"
       }
     })
   ])
