@@ -41,7 +41,7 @@ class HomeController extends Controller
             $article = Article::where('slug', $slug)->where('status', Article::STATUS_ACTIVE)->first();
             $seo = $article->seo()->first();
             $data['title'] = $seo->title;
-            $data['descriptionOG'] = $article->headword;
+            $data['descriptionOG'] = $seo->description;
             $data['imageOG'] = $article->image;
             $data['urlOG'] = $request->url();
         }
