@@ -38,10 +38,25 @@
         <div class="entity_content" style="color: black" v-html="article.headword"></div>
         <!-- entity_content -->
 
-        <div class="entity_content" v-if="article.website_url">
+        <div class="entity_content" style="margin-bottom: 5px;" v-if="article.website_url">
             <!-- <a :href="article.website_url" class="btn btn-info" target="_blank">Đọc bài báo đầy đủ</a> -->
             Nguồn: <a style="color: #7d7d7d" :href="article.website_url" target="_blank">{{ article.website_url }}</a>
+            <!-- <social-sharing :url="this.$route.fullPath"
+                      title="The Progressive JavaScript Framework"
+                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
+                      quote="Vue is a progressive framework for building user interfaces."
+                      hashtags="vuejs,javascript,framework"
+                      twitter-user="vuejs"
+                      inline-template>
+                     
+                <div>
+                    <network network="facebook">
+                        <i class="fa fa-facebook"></i> Facebook
+                    </network>
+                </div>
+            </social-sharing> -->
         </div>
+        <div class="fb-like" :data-href="this.$route.fullPath" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
         <!-- entity_thumb -->
 
         <div class="entity_footer">
@@ -187,19 +202,33 @@ export default {
                 titleSeo: '',
                 description: '',
                 keywords: ''
+            },
+            property: {
+                ogUrl: '',
+                ogType: 'website',
+                ogTitle: '',
+                ogDescription: '',
+                ogImg: ''
             }
         }
     },
     mounted() {
         var app = this;
         app.fav_gg = 'http://www.google.com/s2/favicons?domain=';
-        app.getData()
+        app.getData();
+        console.log(app.$route.fullPath)
     },
     metaInfo () {
         return {
             meta: [
                 { name: 'keywords', content: this.seo.keywords },
-                { name: 'description', content: this.seo.description }
+                { name: 'description', content: this.seo.description },
+                // FB
+                { property: 'og:url', content: this.property.ogUrl},
+                { property: 'og:type', content: this.property.ogType},
+                { property: 'og:title', content: this.property.ogTitle},
+                { property: 'og:description', content: this.property.ogDescription},
+                { property: 'og:image', content: this.property.ogImg},
             ],
             // if no subcomponents specify a metaInfo.title, this title will be used
             title: this.seo.titleSeo
@@ -227,6 +256,13 @@ export default {
                 app.seo.titleSeo = app.seo.title;
                 app.seo.keywords = app.seo.keywords;
                 app.seo.description = app.seo.description;
+
+                //fb meta
+                app.property.ogUrl = app.$route.fullPath;
+                app.property.ogType = 'website';
+                app.property.ogTitle = app.seo.title;
+                app.property.ogDescription = app.article.headword;
+                app.property.ogImg = app.article.image;
 
                 // google analytics
                 app.$ga.page({

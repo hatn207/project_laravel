@@ -46,6 +46,10 @@ window.Vue.use(VueRouter);
 import Meta from 'vue-meta';
 Vue.use(Meta);
 
+// like share fb
+var SocialSharing = require('vue-social-sharing');
+Vue.use(SocialSharing);
+
 // Rss
 import RssIndex from './components/rss/RssIndex.vue';
 import RssCreate from './components/rss/RssCreate.vue';
@@ -174,7 +178,17 @@ Vue.use(VueAnalytics, {
     // router
 })
 
-const app = new Vue({ router }).$mount('#main-wrapper')
+const app = new Vue({ router,
+    created: function() {
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0';
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+        }
+}).$mount('#main-wrapper')
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -93,7 +93,8 @@
                             <tbody>
                                 @foreach($cls_data as $key => $value)
                                 <tr>
-                                    <td><a href="{{ $value['pagePath'] }}">{{ $value['pagePath'] }}</a></td>
+                                    {{-- <td><a href="{{ $value['pagePath'] }}">{{ $value['pagePath'] }}</a></td> --}}
+                                    <td>{{ $value['pageTitle'] }}</td>
                                     <td>{{ $value['pageViews'] }}</td>
                                     <td>{{ $value['pageViewsUnique'] }}</td>
                                     <td>{{ $value['timeOnPage'] }}</td>

@@ -37,7 +37,7 @@ class AnalyticsController extends Controller
             'ga:pagePath',
             [
                 'metrics' => 'ga:pageviews,ga:uniquePageviews,ga:timeOnPage,ga:exits,ga:sessions',
-                'dimensions' => 'ga:pagePath',
+                'dimensions' => 'ga:pageTitle',
                 'sort' => '-ga:pageviews'
             ]
         );
@@ -69,20 +69,20 @@ class AnalyticsController extends Controller
         ->datasets([
             [
                 "label" => "Số lần xem trang",
-                'backgroundColor' => "rgba(38, 185, 154, 0.31)",
-                'borderColor' => "rgba(38, 185, 154, 0.7)",
-                "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
-                "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+                'backgroundColor' => "rgba(52, 159, 52, 0.31)",
+                'borderColor' => "rgba(92, 184, 92, 0.7)",
+                "pointBorderColor" => "rgba(92, 184, 92, 0.7)",
+                "pointBackgroundColor" => "rgba(92, 184, 92, 0.7)",
                 "pointHoverBackgroundColor" => "#fff",
                 "pointHoverBorderColor" => "rgba(220,220,220,1)",
                 'data' => $page_views_ary,
             ],
             [
                 "label" => "Người dùng",
-                'backgroundColor' => "rgba(121, 186, 173, 0.7)",
-                'borderColor' => "rgba(38, 185, 154, 0.7)",
-                "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
-                "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+                'backgroundColor' => "rgba(39, 99, 150, 1)",
+                'borderColor' => "rgba(51, 122, 183, 0.7)",
+                "pointBorderColor" => "rgba(51, 122, 183, 0.7)",
+                "pointBackgroundColor" => "rgba(51, 122, 183, 0.7)",
                 "pointHoverBackgroundColor" => "#fff",
                 "pointHoverBorderColor" => "rgba(220,220,220,1)",
                 'data' => $visitors_ary,
@@ -99,18 +99,22 @@ class AnalyticsController extends Controller
             $hours = floor($seconds / 3600);
             $mins = floor($seconds / 60 % 60);
             $secs = floor($seconds % 60);
-            return [
-                // 'date' => Carbon::createFromFormat('Ymd', $dateRow[0]),
-                'pagePath' => $dateRow[0],
-                // 'pageTitle' => $dateRow[2],
-                // 'visitors' => (int) $dateRow[2],
-                'pageViews' => (int) $dateRow[1],
-                'pageViewsUnique' => (int) $dateRow[2],
-                'timeOnPage' => sprintf('%02d:%02d:%02d', $hours, $mins, $secs),
-                'exits' => (int) $dateRow[4],
-                'sessions' => (int) $dateRow[5],
-                'rateExits' => $dateRow[5] != '0' ? number_format(100 / (int) $dateRow[5] * (int) $dateRow[4], 2) : '0.00' 
-            ];
+            if ($dateRow[0] == '(not set)') {
+                $dateRow[0] = 'Cô gái nặng 100 kg lấy lại vóc dáng thon thả nhờ nhảy dây mỗi ngày';
+            }
+                return [
+                    // 'date' => Carbon::createFromFormat('Ymd', $dateRow[0]),
+                    // 'pagePath' => $dateRow[0],
+                    'pageTitle' => $dateRow[0],
+                    // 'visitors' => (int) $dateRow[2],
+                    'pageViews' => (int) $dateRow[1],
+                    'pageViewsUnique' => (int) $dateRow[2],
+                    'timeOnPage' => sprintf('%02d:%02d:%02d', $hours, $mins, $secs),
+                    'exits' => (int) $dateRow[4],
+                    'sessions' => (int) $dateRow[5],
+                    'rateExits' => $dateRow[5] != '0' ? number_format(100 / (int) $dateRow[5] * (int) $dateRow[4], 2) : '0.00' 
+                ];
+            
         });
     }
 
