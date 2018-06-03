@@ -41,7 +41,7 @@
         <div class="entity_content" style="margin-bottom: 5px;" v-if="article.website_url">
             <!-- <a :href="article.website_url" class="btn btn-info" target="_blank">Đọc bài báo đầy đủ</a> -->
             Nguồn: <a style="color: #7d7d7d" :href="article.website_url" target="_blank">{{ article.website_url }}</a>
-            <social-sharing :url="this.$route.fullPath"
+            <social-sharing :url="'http://hatn-donga.herokuapp.com'+this.$route.fullPath"
                       title="The Progressive JavaScript Framework"
                       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
                       quote="Vue is a progressive framework for building user interfaces."

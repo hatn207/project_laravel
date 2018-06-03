@@ -69772,7 +69772,7 @@ var render = function() {
               _vm._v(" "),
               _c("social-sharing", {
                 attrs: {
-                  url: this.$route.fullPath,
+                  url: "http://hatn-donga.herokuapp.com" + this.$route.fullPath,
                   title: "The Progressive JavaScript Framework",
                   description:
                     "Intuitive, Fast and Composable MVVM for building interactive interfaces.",
