@@ -217,7 +217,7 @@ export default {
         var app = this;
         app.fav_gg = 'http://www.google.com/s2/favicons?domain=';
         app.getData();
-        console.log(app.$route.fullPath)
+        window.FB.XFBML.parse();
     },
     metaInfo () {
         return {
