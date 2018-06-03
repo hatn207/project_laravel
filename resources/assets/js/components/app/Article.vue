@@ -174,8 +174,13 @@
 
     </div>
     <!--Entity Comments -->
-
-    <div class="fb-comments" :data-href="'http://hatn-donga.herokuapp.com'+this.$route.fullPath" data-numposts="5" data-width="100%"></div>
+    <div class="entity_comments">
+        <div class="entity_inner__title header_black">
+            <h2>Bình luận Facebook</h2>
+        </div>
+        <div class="fb-comments" :data-href="'http://hatn-donga.herokuapp.com'+this.$route.fullPath" data-numposts="5" data-width="100%"></div>
+    </div>
+    <!--Entity Comments -->
 
     </div>
     <!--Left Section-->

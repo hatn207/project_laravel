@@ -69566,6 +69566,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -70082,14 +70087,18 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", {
-      staticClass: "fb-comments",
-      attrs: {
-        "data-href": "http://hatn-donga.herokuapp.com" + this.$route.fullPath,
-        "data-numposts": "5",
-        "data-width": "100%"
-      }
-    })
+    _c("div", { staticClass: "entity_comments" }, [
+      _vm._m(3),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "fb-comments",
+        attrs: {
+          "data-href": "http://hatn-donga.herokuapp.com" + this.$route.fullPath,
+          "data-numposts": "5",
+          "data-width": "100%"
+        }
+      })
+    ])
   ])
 }
 var staticRenderFns = [
@@ -70115,6 +70124,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "entity_inner__title header_black" }, [
       _c("h2", [_vm._v("Viết bình luận")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "entity_inner__title header_black" }, [
+      _c("h2", [_vm._v("Bình luận Facebook")])
     ])
   }
 ]
