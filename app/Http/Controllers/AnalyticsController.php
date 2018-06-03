@@ -8,6 +8,7 @@ use Spatie\Analytics\Period;
 use Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
+use App\Article;
 
 class AnalyticsController extends Controller
 {
@@ -60,11 +61,12 @@ class AnalyticsController extends Controller
 
         $sum['page_views'] = array_sum($page_views_ary);
         $sum['visitors'] = array_sum($visitors_ary);
+        $sum['articles'] = Article::where('status', Article::STATUS_ACTIVE)->count();
         
         $chartjs = app()->chartjs
         ->name('lineChartTest')
         ->type('line')
-        ->size(['width' => 400, 'height' => 200])
+        ->size(['width' => 400, 'height' => 190])
         ->labels($day_ary)
         ->datasets([
             [
