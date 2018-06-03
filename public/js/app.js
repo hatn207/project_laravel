@@ -69618,8 +69618,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     metaInfo: function metaInfo() {
         return {
             meta: [{ name: 'keywords', content: this.seo.keywords }, { name: 'description', content: this.seo.description },
-            // FB
-            { property: 'og:url', content: this.property.ogUrl }, { property: 'og:type', content: this.property.ogType }, { property: 'og:title', content: this.property.ogTitle }, { property: 'og:description', content: this.property.ogDescription }, { property: 'og:image', content: this.property.ogImg }],
+            // FBfb:app_id
+            { property: 'fb:app_id', content: this.property.ogAppId }, { property: 'og:url', content: this.property.ogUrl }, { property: 'og:type', content: this.property.ogType }, { property: 'og:title', content: this.property.ogTitle }, { property: 'og:description', content: this.property.ogDescription }, { property: 'og:image', content: this.property.ogImg }],
             // if no subcomponents specify a metaInfo.title, this title will be used
             title: this.seo.titleSeo
         };

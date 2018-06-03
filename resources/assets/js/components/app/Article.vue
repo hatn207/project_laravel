@@ -224,7 +224,8 @@ export default {
             meta: [
                 { name: 'keywords', content: this.seo.keywords },
                 { name: 'description', content: this.seo.description },
-                // FB
+                // FBfb:app_id
+                { property: 'fb:app_id', content: this.property.ogAppId},
                 { property: 'og:url', content: this.property.ogUrl},
                 { property: 'og:type', content: this.property.ogType},
                 { property: 'og:title', content: this.property.ogTitle},
