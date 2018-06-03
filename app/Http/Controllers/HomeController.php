@@ -34,6 +34,7 @@ class HomeController extends Controller
         $data['descriptionOG'] = '';
         $data['imageOG'] = '';
         $data['urlOG'] = $request->url();
+        $data['imageALTOG'] = '';
 
         if (!empty($request->segment(2))) {
             $slug = $request->segment(2);
@@ -44,6 +45,7 @@ class HomeController extends Controller
             $data['descriptionOG'] = $seo->description;
             $data['imageOG'] = $article->image;
             $data['urlOG'] = $request->url();
+            $data['imageALTOG'] = $seo->alt;
         }
         
         $now = Carbon::now('Asia/Ho_Chi_Minh');

@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">Thống kê Google Analytics</h1>
+            <h3 class="page-header">Bảng điều khiển</h1>
             <div class="row">
                 <div class="col-lg-9">
                     <div class="panel panel-default">

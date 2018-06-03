@@ -16,6 +16,7 @@
     <meta property="og:title" content="{{ $title }}" />
     <meta property="og:description" content="{{ $descriptionOG }}" />
     <meta property="og:image" content="{{ $imageOG }}" />
+    <meta property="og:image:alt" content="{{ $imageALTOG }}" />  
 
     <!-- favicon -->
     <link href="{{ asset('images/fav.png')}}" rel=icon>
