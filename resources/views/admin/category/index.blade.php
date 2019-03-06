@@ -1,6 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
+{{-- test --}}
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
