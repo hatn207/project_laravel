@@ -3,7 +3,7 @@
         <div class="form-group">
             <router-link :to="{name: 'indexTrend'}" class="btn btn-default">Quay lại</router-link>
         </div>
-
+<!-- test2 -->
         <div class="panel panel-default">
             <div class="panel-heading">Tạo mới</div>
             <div class="panel-body">
